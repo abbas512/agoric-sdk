@@ -1,4 +1,4 @@
-import './install-ses-lockdown.js';
+import '@agoric/install-ses';
 import './tailwind.css';
 import App from './App.svelte';
 import AppV2 from './AppV2.svelte';
