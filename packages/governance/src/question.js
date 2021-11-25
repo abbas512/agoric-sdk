@@ -5,7 +5,7 @@ import { sameStructure } from '@agoric/same-structure';
 import { makeHandle } from '@agoric/zoe/src/makeHandle.js';
 import { Nat } from '@agoric/nat';
 
-import { assertType, ParamType } from './paramManager.js';
+import { assertType, ParamType } from './paramGovernance/paramManager.js';
 
 const { details: X, quote: q } = assert;
 

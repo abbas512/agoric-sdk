@@ -3,8 +3,6 @@
 import { Far } from '@agoric/marshal';
 import { sameStructure } from '@agoric/same-structure';
 
-import { buildParamManager } from './paramManager.js';
-
 const { details: X, quote: q } = assert;
 
 /**
@@ -16,19 +14,18 @@ const { details: X, quote: q } = assert;
  *
  *  @type {HandleParamGovernance}
  */
-const handleParamGovernance = (zcf, governedParamsTemplate) => {
+const handleParamGovernance = (zcf, paramManager) => {
   const terms = zcf.getTerms();
   /** @type {ParamDescriptions} */
   const governedParams = terms.main;
   const { electionManager } = terms;
 
   assert(
-    sameStructure(governedParams, governedParamsTemplate),
-    X`Terms must include ${q(governedParamsTemplate)}, but were ${q(
+    sameStructure(governedParams, paramManager.getParamList()),
+    X`Terms must include ${q(paramManager.getParamList())}, but were ${q(
       governedParams,
     )}`,
   );
-  const paramManager = buildParamManager(governedParams);
 
   const makePublicFacet = (originalPublicFacet = {}) => {
     return Far('publicFacet', {

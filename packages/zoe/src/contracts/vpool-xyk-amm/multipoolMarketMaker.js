@@ -15,7 +15,7 @@ import '../../../exported.js';
 import { makeMakeCollectFeesInvitation } from '../newSwap/collectFees.js';
 import { makeMakeSwapInvitation } from './swap.js';
 import { makeDoublePool } from './doublePool.js';
-import { makeInitialValues, POOL_FEE_KEY, PROTOCOL_FEE_KEY } from './params.js';
+import { makeParamManager, POOL_FEE_KEY, PROTOCOL_FEE_KEY } from './params.js';
 
 const { details: X } = assert;
 
@@ -117,7 +117,7 @@ const start = zcf => {
     makePublicFacet,
     makeCreatorFacet,
     getParamValue,
-  } = handleParamGovernance(zcf, makeInitialValues(poolFeeBP, protocolFeeBP));
+  } = handleParamGovernance(zcf, makeParamManager(poolFeeBP, protocolFeeBP));
   const getPoolFeeBP = () => getParamValue(POOL_FEE_KEY);
   const getProtocolFeeBP = () => getParamValue(PROTOCOL_FEE_KEY);
 

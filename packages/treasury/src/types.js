@@ -183,7 +183,6 @@
  * @param {InnerVaultManager} manager
  * @param {ZCFMint} runMint
  * @param {ERef<PriceAuthority>} priceAuthority
- * @param {GetParams} paramManager
  * @param {Timestamp} startTimeStamp
  * @returns {VaultKit}
  */

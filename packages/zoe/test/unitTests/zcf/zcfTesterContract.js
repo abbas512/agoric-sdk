@@ -12,7 +12,11 @@ const start = async zcf => {
   const instance = zcf.getInstance();
   zcf.setTestJig(() => harden({ instance }));
 
-  return {};
+  const publicFacet = {
+    makeInvitation: () => zcf.makeInvitation(() => 17, 'simple'),
+  };
+
+  return { publicFacet };
 };
 
 harden(start);

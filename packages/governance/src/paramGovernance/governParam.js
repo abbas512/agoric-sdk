@@ -11,7 +11,7 @@ import {
   QuorumRule,
   ElectionType,
   looksLikeQuestionSpec,
-} from './question.js';
+} from '../question.js';
 import { assertType } from './paramManager.js';
 
 const { details: X } = assert;

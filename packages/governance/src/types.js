@@ -20,8 +20,8 @@
  */
 
 /**
- * @typedef { 'amount' | 'brand' | 'instance' | 'installation' | 'nat' |
- * 'ratio' | 'string' | 'unknown' } ParamType
+ * @typedef { 'amount' | 'brand' | 'instance' | 'installation' | 'invitation' |
+ *   'nat' | 'ratio' | 'string' | 'unknown' } ParamType
  */
 
 /**
@@ -48,6 +48,7 @@
  *   ParamRecord<'brand'> & { value: Brand } |
  *   ParamRecord<'installation'> & { value: Installation } |
  *   ParamRecord<'instance'> & { value: Instance } |
+ *   ParamRecord<'invitation'> & { value: Amount } |
  *   ParamRecord<'nat'> & { value: bigint } |
  *   ParamRecord<'ratio'> & { value: Ratio } |
  *   ParamRecord<'string'> & { value: string } |
@@ -401,6 +402,8 @@
  * @typedef {Object} ParamManagerBase
  * @property {GetParams} getParams
  * @property {GetParam} getParam
+ * @property {() => ParamDescriptions} getParamList
+ * @property {(name:string) => Invitation} getInternalParamValue
  * @property {() => Subscription<ParamDescription>} getSubscription
  */
 
@@ -546,7 +549,7 @@
 /**
  * @callback HandleParamGovernance
  * @param {ContractFacet} zcf
- * @param {ParamDescriptions} governedParamsTemplate
+ * @param {ParamManagerFull} paramManager
  * @returns {ParamGovernorBundle}
  */
 
@@ -666,4 +669,20 @@
  * parameter change for a governed contract.
  *
  * @param {ParamChangeIssueDetails} details
+ */
+
+/**
+ * @typedef {Object} ParamManagerBuilder
+ * @property {(name: string, value: Amount) => ParamManagerBuilder} addAmount
+ * @property {(name: string, value: Amount) => ParamManagerBuilder} addBrandedAmount
+ * @property {(name: string, value: Brand) => ParamManagerBuilder} addBrand
+ * @property {(name: string, value: Installation) => ParamManagerBuilder} addInstallation
+ * @property {(name: string, value: Instance) => ParamManagerBuilder} addInstance
+ * @property {(name: string, value: Invitation) => ERef<ParamManagerBuilder>} addInvitation
+ * @property {(name: string, value: bigint) => ParamManagerBuilder} addNat
+ * @property {(name: string, value: Ratio) => ParamManagerBuilder} addRatio
+ * @property {(name: string, value: Ratio) => ParamManagerBuilder} addBrandedRatio
+ * @property {(name: string, value: string) => ParamManagerBuilder} addString
+ * @property {(name: string, value: any) => ParamManagerBuilder} addUnknown
+ * @property {() => ParamManagerFull} build
  */

@@ -23,9 +23,13 @@ export {
   makeParamChangePositions,
   validateParamChangeQuestion,
   assertBallotConcernsQuestion,
-} from './governParam.js';
+} from './paramGovernance/governParam.js';
 
-export { ParamType, buildParamManager, assertType } from './paramManager.js';
+export {
+  ParamType,
+  makeParamManagerBuilder,
+  assertType,
+} from './paramGovernance/paramManager.js';
 
 export {
   assertContractGovernance,

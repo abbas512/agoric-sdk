@@ -17,9 +17,9 @@ import path from 'path';
 import {
   setupGovernance,
   makeParamChangePositions,
-} from '../../src/governParam.js';
+} from '../../src/paramGovernance/governParam.js';
 import { MALLEABLE_NUMBER } from '../swingsetTests/contractGovernor/governedContract.js';
-import { makeGovernedNat } from '../../src/paramMakers.js';
+import { makeGovernedNat } from '../../src/paramGovernance/paramMakers.js';
 
 const filename = new URL(import.meta.url).pathname;
 const dirname = path.dirname(filename);
