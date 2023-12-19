@@ -39,7 +39,7 @@
     "@agoric/vats": "^0.4.2",
     "@agoric/xsnap": "^0.10.0",
     "@iarna/toml": "^2.2.3",
-    "@opentelemetry/exporter-prometheus": "^0.16.0",
+    "@opentelemetry/exporter-prometheus": "^0.25.0",
     "@opentelemetry/metrics": "^0.16.0",
     "agoric": "^0.13.19",
     "anylogger": "^0.21.0",
