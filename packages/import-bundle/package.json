@@ -20,7 +20,7 @@
   "dependencies": {
     "@agoric/assert": "^0.3.14",
     "@endo/base64": "^0.2.8",
-    "@endo/compartment-mapper": "^0.5.3"
+    "@endo/compartment-mapper": "^1.0.0"
   },
   "devDependencies": {
     "@agoric/babel-standalone": "^7.14.3",
